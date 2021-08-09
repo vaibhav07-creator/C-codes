@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    vector<int> vec1;
+    int l, u, count = 0;
+    cin >> l >> u;
+    for (int i = l; i <= u; i++)
+    {
+        int flag = 1;
+        for (int n = 2; n < i; n++)
+        {
+            if (i % n == 0)
+            {
+                flag = 0;
+                break;
+            }
+            else
+            {
+                flag = 1;
+            }
+        }
+        if(flag == 1)
+        {
+            vec1.push_back(i);
+        }
+    }
+    for(int i = 0 ; i<vec1.size() ; i++)
+    {
+        for(int j = 0 ; j<vec1.size() ; j++)
+        {
+            if(vec1[j] - vec1[i] == 6)
+            {
+                count++;
+            }
+        }
+    }
+    if(count == 0)
+    cout<<"No Prime Pair"<<endl;
+    else
+    cout<<count;
+    return 0;
