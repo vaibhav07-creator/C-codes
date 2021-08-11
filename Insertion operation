@@ -29,8 +29,9 @@ int indexinsert(int arr[] , int s , int index , int capacity , int elem)
 
 int main()
 {
-    int capacity = 100 , size = 5 , element , index;;
+    int capacity = 100 , element , index;;
     int arr[100] = {10 , 20 , 30 ,40 ,50};
+    int size = sizeof(arr)/sizeof(int);
     display(arr , size);
     printf("\nEnter at which index you want to insert and element");
     scanf("%d%d",&index , &element);
