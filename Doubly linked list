@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *prev;
+    struct node *next;
+};
+
+void traverse(struct node * head)
+{
+    struct node *ptr = head;
+    do
+    {
+        printf("%d\t",ptr->data);
+        ptr = ptr->next;
+    }while(ptr->next != NULL);
+    printf("%d\t",ptr->data);
+    printf("\nreverse\n");
+    do
+    {
+        printf("%d\t",ptr->data);
+        ptr = ptr->prev;
+    }while(ptr->prev != NULL);
+    printf("%d\t",ptr->data);
+}
+
+int main()
+{
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    struct node* first = (struct node*)malloc(sizeof(struct node));
+    struct node* second = (struct node*)malloc(sizeof(struct node));
+    struct node* third = (struct node*)malloc(sizeof(struct node));
+    struct node* fourth = (struct node*)malloc(sizeof(struct node));
+    
+    head->data = 10;
+    head->next = first;
+    head->prev = NULL;
+
+    first->data = 20;
+    first->next = second;
+    first->prev = head;
+
+    second->data = 30;
+    second->next = third;
+    second->prev = first;
+
+    third->data = 40;
+    third->next = fourth;
+    third->prev = second;
+
+    fourth->data = 50;
+    fourth->next = NULL;
+    fourth->prev = third;
+
+    traverse(head);
+    return 0;
+}
