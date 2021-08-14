@@ -1,0 +1,96 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    int data;
+    int top;
+    int size;
+    struct node * next;    
+};
+
+int isempty(struct node *sp)
+{
+    if(sp == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+int isfull(struct node *head)
+{
+    if(head == NULL)
+    {
+        return 1;
+    }
+    return 0;
+    
+}
+
+struct node * pop(struct node * top)
+{
+    if(isempty(top))
+    {
+        printf("\nStack Underflow\n");
+    }
+    else
+    {
+        struct node *n = top;
+        top = top->next;
+        int x = n->data;
+        printf("\n%d is popped from the stack\n",x);
+        free(n);
+        return top;
+    }
+}
+
+
+
+struct node* push(struct node * top , int data)
+{
+    struct node * head = (struct node*)malloc(sizeof(struct node));
+    if(isfull(head) == 1)
+    {
+        printf("\nStack Overflow\n");
+    }
+    else
+    {
+        head->data = data;
+        head->next = top;
+        top = head;
+        return top;
+    }
+}
+void display(struct node * top)
+{
+    printf("\nElements are");
+    while(top!=NULL)
+    {
+        printf("\n%d",top->data);
+        top = top->next;
+    }
+}
+
+int main(){
+    struct node * top = NULL;
+    top = push(top , 10);
+    top = push(top , 20);
+    top = push(top , 30);
+    top = push(top , 40);
+    top = push(top , 50);
+    top = push(top , 60);
+    top = push(top , 70);
+    top = push(top , 80);
+    top = push(top , 90);
+    display(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    top = pop(top);
+    return 0;
+}
