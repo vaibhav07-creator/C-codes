@@ -1,0 +1,42 @@
+#include<iostream>
+#include<string>
+#include<vector>
+using namespace std;
+
+char characterAt(string s , int n)
+{
+    int len  = s.length();
+    vector<char> arr;
+    int i = 0;
+    int lent = 0;
+    while(i<len)
+    {
+        char t = s[i];
+        char v = s[i+1];
+        int m = (int)v - 48;
+        cout<<t<<" "<<m<<endl;
+        int j = 0;
+        while(j<m)
+        {
+            arr.push_back(s[i]);
+            j++;
+            lent++;
+        }
+        i = i+2;
+        v = '\0';
+        t = '\0';
+    }
+    for(int i = 0 ; i<lent;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    char c = arr[n-1];
+    return c;
+}
+int main()
+{
+    string s = "a4b2c1d3f4s2";
+    int n=8;
+    cout<<"the character at "<<n<<" is "<<characterAt(s,n);
+    return 0;
+}
