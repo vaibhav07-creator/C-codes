@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+static int swapno;
+
+void swapmax(int* a , int* b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    swapno++;
+}
+int main(){
+    int n;
+    cin>>n;
+    int *p = new int[n];
+    for(int i = 0 ;i<n ;i++){
+        cin>>p[i];
+    }
+    int i = 0;
+    int min = 0;
+    while(i<n-1){
+        if(p[i]<p[i+1])
+            swapmax(&p[i],&p[i+1]);
+        i++;
+    }
+    while(i>0){
+        if(p[i]>p[i-1])
+            swapmax(&p[i],&p[i-1]);
+        i--;
+    }
+    cout<<swapno;
+    return 0;
+}
