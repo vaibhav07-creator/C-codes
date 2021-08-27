@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    long int n = 1234567;
+    string s = to_string(n);
+    int len = s.length() - 1;
+    int p=1,a = 0,b = 0,m;
+    a = n % 10;
+    n = n/10;
+    for(int i = 0 ; i<len ;i++)
+    {
+        p = 10 * p;
+    }
+    a = a*p;
+    p = p/10;
+    b = n / p;
+    m = n%p;
+    m = m*10+b;
+    a =a+m;
+    cout <<a;
+}
